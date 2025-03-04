@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QIRS Housing Solutions</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Lightbox -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img
+            src="logo.png"
+            alt="QIRS House Solution Logo"
+            class="logo-img"
+            onerror="this.style.display='none'"
+          />
+          <span
+            class="logo-text"
+            style="
+              color: var(--text-light);
+              font-weight: 600;
+              font-size: 1.2rem;
+            "
+            >QIRS Housing Solution</span
+          >
+        </div>
+        <div class="nav-toggle">☰</div>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title" style="margin-bottom: 2.5rem">
+          Welcome to QIRS Housing Solution
+        </h1>
+        <p
+          style="margin: 0 auto 3rem auto; text-align: center; max-width: 600px"
+        >
+          Expert Solutions for Buying, Selling & Investing in Real Estate
+        </p>
+        <div class="hero-buttons" style="margin-top: 3rem">
+          <button
+            class="cta-button primary"
+            onclick="window.location.href='listings.html'"
+          >
+            View Properties
+          </button>
+          <button
+            class="cta-button secondary"
+            onclick="window.location.href='contact.html'"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-listings section-spacing" id="listings">
+      <div class="section-header">
+        <h2>Featured Properties</h2>
+        <p>Handpicked Premium Listings Just For You</p>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="property-card" data-aos="fade-up">
+              <img
+                src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+                alt="Luxury Home"
+              />
+              <div class="property-info">
+                <h3>Luxury Villa</h3>
+                <div class="price">1,200,000 Birr</div>
+                <div class="property-details">
+                  <span>4 beds</span>
+                  <span>3 baths</span>
+                  <span>3,500 sqft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="property-card" data-aos="fade-up">
+              <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+                alt="Modern Home"
+              />
+              <div class="property-info">
+                <h3>Modern Townhouse</h3>
+                <div class="price">3,750,000 Birr</div>
+                <div class="property-details">
+                  <span>3 beds</span>
+                  <span>2.5 baths</span>
+                  <span>2,200 sqft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="property-card" data-aos="fade-up">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                alt="Family Home"
+              />
+              <div class="property-info">
+                <h3>Family Home</h3>
+                <div class="price">1,550,000 Birr</div>
+                <div class="property-details">
+                  <span>4 beds</span>
+                  <span>2 baths</span>
+                  <span>2,800 sqft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <div class="view-all-button">
+        <button
+          class="cta-button primary"
+          onclick="window.location.href='listings.html'"
+        >
+          View All Properties
+        </button>
+      </div>
+    </section>
+
+    <section id="about" class="about-section section-spacing">
+      <div class="about-content">
+        <div class="section-header">
+          <h2>About Us</h2>
+          <p>Your Trusted Real Estate Partner</p>
+        </div>
+        <p>
+          Qirs housing solution has been serving our community for over 20
+          years. We pride ourselves on providing exceptional service and helping
+          our clients find their perfect home. Our team of experienced agents is
+          dedicated to making your real estate journey smooth and successful.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="section-header">
+        <h2>Contact Us</h2>
+        <p>Get in touch with our expert team</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <div class="info-content">
+              <h3>Call Us</h3>
+              <p>+251********</p>
+              <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div class="info-content">
+              <h3>Email Us</h3>
+              <p>info@qirshouse.com</p>
+              <p>support@qirshouse.com</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="info-content">
+              <h3>Visit Us</h3>
+              <p>123 Main Street</p>
+              <p>Bole road ,90210</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-container">
+          <h2>Send Us a Message</h2>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="property">Property Information</option>
+                <option value="viewing">Schedule Viewing</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#listings">Listings</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Buy Property</a></li>
+            <li><a href="#">Sell Property</a></li>
+            <li><a href="#">Property Management</a></li>
+            <li><a href="#">Consultation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li>📧 info@qirshousingsolution.com</li>
+            <li>📞 (555) 123-4567</li>
+            <li>📍 bole,addis ababa , Ethiopia/li></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Qirs housing Solution. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .querySelector(".nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector("nav ul").classList.toggle("active");
+        });
+    </script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize AOS and other scripts -->
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+      });
+
+      // Initialize Swiper for property cards
+      const swiper = new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

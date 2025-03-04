@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - QIRS Housing Solutions</title>
+    
+    <!-- Same head section as other pages -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="QIRS Housing Solutions Logo" class="logo-img">
+            </div>
+            <div class="nav-toggle">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listings.html" class="active">Listings</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="property-detail-page">
+        <div class="property-gallery" data-aos="fade-up">
+            <div class="main-image">
+                <img id="main-property-image" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Property Image">
+            </div>
+            <div class="thumbnail-grid">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Thumbnail 1" class="active" onclick="changeMainImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9" alt="Thumbnail 2" onclick="changeMainImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Thumbnail 3" onclick="changeMainImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Thumbnail 4" onclick="changeMainImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Thumbnail 5" onclick="changeMainImage(this.src)">
+            </div>
+        </div>
+
+        <div class="property-header" data-aos="fade-up">
+            <div class="title-section">
+                <h1 id="property-title">Luxury Villa</h1>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> <span id="property-location">Bole, Addis Ababa</span></p>
+            </div>
+            <div class="price-section">
+                <h2 class="price" id="property-price">1,200,000 Birr</h2>
+                <p class="price-per-sqft">343 Birr/sqft</p>
+            </div>
+        </div>
+
+        <div class="property-highlights" data-aos="fade-up">
+            <div class="highlight-item">
+                <i class="fas fa-bed"></i>
+                <span id="property-beds">4 Bedrooms</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fas fa-bath"></i>
+                <span id="property-baths">3 Bathrooms</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fas fa-ruler-combined"></i>
+                <span id="property-area">3,500 sqft</span>
+            </div>
+            <div class="highlight-item">
+                <i class="fas fa-calendar"></i>
+                <span>Built in 2020</span>
+            </div>
+        </div>
+
+        <div class="property-description" data-aos="fade-up">
+            <h2>Description</h2>
+            <p>This stunning luxury villa is located in the heart of Bole, one of Addis Ababa's most prestigious neighborhoods. The property offers spacious living areas, high-quality finishes, and a beautiful garden.</p>
+            <p>The villa features 4 bedrooms, 3 bathrooms, a modern kitchen with high-end appliances, a spacious living room, and a dining area. The master bedroom includes an en-suite bathroom and a walk-in closet.</p>
+            <p>The property also includes a two-car garage, a security system, and is within walking distance of shopping centers, restaurants, and schools.</p>
+            
+            <h3>Features</h3>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> Modern Kitchen</li>
+                <li><i class="fas fa-check"></i> Garden</li>
+                <li><i class="fas fa-check"></i> Security System</li>
+                <li><i class="fas fa-check"></i> Parking</li>
+                <li><i class="fas fa-check"></i> Air Conditioning</li>
+                <li><i class="fas fa-check"></i> High-Speed Internet</li>
+                <li><i class="fas fa-check"></i> Backup Generator</li>
+                <li><i class="fas fa-check"></i> Water Tank</li>
+            </ul>
+        </div>
+
+        <div class="property-details-grid" data-aos="fade-up">
+            <div class="details-column">
+                <h3>Property Details</h3>
+                <ul>
+                    <li><strong>Property ID:</strong> <span id="property-id">QIRS-1001</span></li>
+                    <li><strong>Property Type:</strong> <span id="property-type">Villa</span></li>
+                    <li><strong>Status:</strong> For Sale</li>
+                    <li><strong>Year Built:</strong> 2020</li>
+                </ul>
+            </div>
+            <div class="details-column">
+                <h3>Location Information</h3>
+                <ul>
+                    <li><strong>City:</strong> Addis Ababa</li>
+                    <li><strong>Area:</strong> Bole</li>
+                    <li><strong>Neighborhood:</strong> Bole Road</li>
+                    <li><strong>Zip Code:</strong> 1000</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="map-container" data-aos="fade-up">
+            <h2>Location</h2>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5859059947427!2d38.7894!3d9.0016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sBole%2C%20Addis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="contact-form" data-aos="fade-up">
+            <h2>Interested in this property?</h2>
+            <form id="property-inquiry-form">
+                <div class="form-grid">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone">
+                    <input type="text" placeholder="Subject" value="Inquiry about Luxury Villa" id="inquiry-subject">
+                    <textarea placeholder="I'm interested in this property. Please contact me with more information." required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+
+        <div class="similar-properties" data-aos="fade-up">
+            <h2>Similar Properties</h2>
+            <div class="listings-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9" alt="Modern Apartment">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kazanchis, Addis Ababa</span>
+                        </div>
+                        <h3>Modern Apartment</h3>
+                        <div class="price">850,000 Birr</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 beds</span>
+                            <span><i class="fas fa-bath"></i> 2 baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,800 sqft</span>
+                        </div>
+                        <a href="property-detail.html?id=2" class="view-details-button" style="display: block; width: 100%; padding: 12px; margin-top: 15px; background-color: var(--primary-color); color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: 500; transition: all 0.3s ease;">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Family Home">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>CMC, Addis Ababa</span>
+                        </div>
+                        <h3>Family Home</h3>
+                        <div class="price">980,000 Birr</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 beds</span>
+                            <span><i class="fas fa-bath"></i> 2 baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,500 sqft</span>
+                        </div>
+                        <a href="property-detail.html?id=3" class="view-details-button" style="display: block; width: 100%; padding: 12px; margin-top: 15px; background-color: var(--primary-color); color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: 500; transition: all 0.3s ease;">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>QIRS Housing Solutions</h3>
+                <p>Your trusted partner in finding the perfect home in Ethiopia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="listings.html">Listings</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Bole, Addis Ababa, Ethiopia</p>
+                <p><i class="fas fa-phone"></i> +251 911 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@qirshousing.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 QIRS Housing Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Function to change the main image when a thumbnail is clicked
+        function changeMainImage(src) {
+            document.getElementById('main-property-image').src = src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail-grid img');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+                if (thumb.src === src) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+
+        // Function to get URL parameters
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+            for (const [key, value] of urlParams.entries()) {
+                params[key] = value;
+            }
+            
+            return params;
+        }
+
+        // Function to update property details based on URL parameters
+        function updatePropertyDetails() {
+            const params = getUrlParams();
+            
+            if (params.id) {
+                // In a real application, you would fetch property details from a database
+                // For this demo, we'll just use the URL parameters
+                
+                if (params.type) {
+                    document.getElementById('property-type').textContent = params.type.charAt(0).toUpperCase() + params.type.slice(1);
+                }
+                
+                if (params.location) {
+                    document.getElementById('property-location').textContent = params.location;
+                }
+                
+                if (params.price) {
+                    const formattedPrice = new Intl.NumberFormat().format(params.price);
+                    document.getElementById('property-price').textContent = formattedPrice + ' Birr';
+                }
+                
+                // Update the inquiry subject
+                const propertyTitle = document.getElementById('property-title').textContent;
+                document.getElementById('inquiry-subject').value = 'Inquiry about ' + propertyTitle;
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = updatePropertyDetails;
+    </script>
+</body>
+</html> 
