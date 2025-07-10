@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QIRS Housing - Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="QIRS Logo" class="logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#properties"><i class="fas fa-building"></i> Properties</a>
+                    </li>
+                    <li>
+                        <a href="#inquiries"><i class="fas fa-envelope"></i> Inquiries</a>
+                    </li>
+                    <li>
+                        <a href="#users"><i class="fas fa-users"></i> Users</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-menu">
+                    <span class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </span>
+                    <div class="admin-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                    </div>
+                </div>
+
+                <!-- Notifications Panel -->
+                <div class="notifications-panel">
+                    <div class="notifications-header">
+                        <h3>Notifications</h3>
+                        <button class="clear-all">Clear All</button>
+                    </div>
+                    <div class="notifications-list">
+                        <div class="notification-item unread">
+                            <i class="fas fa-home notification-icon"></i>
+                            <div class="notification-content">
+                                <p>New property listing: Modern Villa</p>
+                                <span class="notification-time">2 hours ago</span>
+                            </div>
+                            <button class="mark-read"><i class="fas fa-check"></i></button>
+                        </div>
+                        <div class="notification-item unread">
+                            <i class="fas fa-user notification-icon"></i>
+                            <div class="notification-content">
+                                <p>New inquiry from John Doe</p>
+                                <span class="notification-time">5 hours ago</span>
+                            </div>
+                            <button class="mark-read"><i class="fas fa-check"></i></button>
+                        </div>
+                        <div class="notification-item">
+                            <i class="fas fa-chart-line notification-icon"></i>
+                            <div class="notification-content">
+                                <p>Monthly report is ready</p>
+                                <span class="notification-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <!-- Stats Cards -->
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #4CAF50;">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Total Properties</h3>
+                                <p class="stat-number">156</p>
+                                <span class="stat-change positive">+12% this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #2196F3;">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Active Users</h3>
+                                <p class="stat-number">2,453</p>
+                                <span class="stat-change positive">+8% this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #FF9800;">
+                                <i class="fas fa-envelope-open"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>New Inquiries</h3>
+                                <p class="stat-number">48</p>
+                                <span class="stat-change neutral">Same as last month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background-color: #E91E63;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3>Revenue</h3>
+                                <p class="stat-number">45,289 Birr</p>
+                                <span class="stat-change positive">+15% this month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Properties -->
+                    <div class="content-block">
+                        <div class="section-header">
+                            <h2>Recent Properties</h2>
+                            <button class="add-property-btn">
+                                <i class="fas fa-plus"></i> Add Property
+                            </button>
+                        </div>
+                        <div class="properties-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Location</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="property-info">
+                                                <img src="https://via.placeholder.com/50" alt="Property">
+                                                <span>Modern Villa</span>
+                                            </div>
+                                        </td>
+                                        <td>123 Main St, City</td>
+                                        <td>$450,000</td>
+                                        <td><span class="status-badge available">Available</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="property-info">
+                                                <img src="https://via.placeholder.com/50" alt="Property">
+                                                <span>Luxury Apartment</span>
+                                            </div>
+                                        </td>
+                                        <td>456 Park Ave, City</td>
+                                        <td>$325,000</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="property-info">
+                                                <img src="https://via.placeholder.com/50" alt="Property">
+                                                <span>Family Home</span>
+                                            </div>
+                                        </td>
+                                        <td>789 Oak Rd, City</td>
+                                        <td>$275,000</td>
+                                        <td><span class="status-badge sold">Sold</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Recent Inquiries -->
+                    <div class="content-block">
+                        <div class="section-header">
+                            <h2>Recent Inquiries</h2>
+                        </div>
+                        <div class="inquiries-list">
+                            <div class="inquiry-card">
+                                <div class="inquiry-header">
+                                    <img src="https://via.placeholder.com/40" alt="User">
+                                    <div class="inquiry-user">
+                                        <h4>John Doe</h4>
+                                        <span>2 hours ago</span>
+                                    </div>
+                                    <span class="inquiry-status new">New</span>
+                                </div>
+                                <p class="inquiry-message">
+                                    Interested in the Modern Villa property. Would like to schedule a viewing this weekend.
+                                </p>
+                                <div class="inquiry-actions">
+                                    <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                                    <button class="archive-btn"><i class="fas fa-archive"></i> Archive</button>
+                                </div>
+                            </div>
+                            <div class="inquiry-card">
+                                <div class="inquiry-header">
+                                    <img src="https://via.placeholder.com/40" alt="User">
+                                    <div class="inquiry-user">
+                                        <h4>Jane Smith</h4>
+                                        <span>5 hours ago</span>
+                                    </div>
+                                    <span class="inquiry-status replied">Replied</span>
+                                </div>
+                                <p class="inquiry-message">
+                                    Requesting more information about financing options for the Luxury Apartment.
+                                </p>
+                                <div class="inquiry-actions">
+                                    <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                                    <button class="archive-btn"><i class="fas fa-archive"></i> Archive</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Properties Section -->
+                <section id="properties" class="content-section">
+                    <div class="section-header">
+                        <h2>Properties Management</h2>
+                        <button class="add-property-btn">
+                            <i class="fas fa-plus"></i> Add Property
+                        </button>
+                    </div>
+                    <div class="properties-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Location</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="property-info">
+                                            <img src="https://via.placeholder.com/50" alt="Property">
+                                            <span>Modern Villa</span>
+                                        </div>
+                                    </td>
+                                    <td>CMC, Addis Ababa</td>
+                                    <td>450,000 Birr</td>
+                                    <td><span class="status-badge available">Available</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="property-info">
+                                            <img src="https://via.placeholder.com/50" alt="Property">
+                                            <span>Luxury Apartment</span>
+                                        </div>
+                                    </td>
+                                    <td> Bole, Addis Ababa</td>
+                                    <td>325,000 Birr</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Inquiries Section -->
+                <section id="inquiries" class="content-section">
+                    <div class="section-header">
+                        <h2>All Inquiries</h2>
+                    </div>
+                    <div class="inquiries-list">
+                        <div class="inquiry-card">
+                            <div class="inquiry-header">
+                                <img src="https://via.placeholder.com/40" alt="User">
+                                <div class="inquiry-user">
+                                    <h4>John Doe</h4>
+                                    <span>2 hours ago</span>
+                                </div>
+                                <span class="inquiry-status new">New</span>
+                            </div>
+                            <p class="inquiry-message">
+                                Interested in the Modern Villa property. Would like to schedule a viewing this weekend.
+                            </p>
+                            <div class="inquiry-actions">
+                                <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                                <button class="archive-btn"><i class="fas fa-archive"></i> Archive</button>
+                            </div>
+                        </div>
+                        <div class="inquiry-card">
+                            <div class="inquiry-header">
+                                <img src="https://via.placeholder.com/40" alt="User">
+                                <div class="inquiry-user">
+                                    <h4>Jane Smith</h4>
+                                    <span>5 hours ago</span>
+                                </div>
+                                <span class="inquiry-status replied">Replied</span>
+                            </div>
+                            <p class="inquiry-message">
+                                Requesting more information about financing options for the Luxury Apartment.
+                            </p>
+                            <div class="inquiry-actions">
+                                <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                                <button class="archive-btn"><i class="fas fa-archive"></i> Archive</button>
+                            </div>
+                        </div>
+                        <div class="inquiry-card">
+                            <div class="inquiry-header">
+                                <img src="https://via.placeholder.com/40" alt="User">
+                                <div class="inquiry-user">
+                                    <h4>Robert Johnson</h4>
+                                    <span>1 day ago</span>
+                                </div>
+                                <span class="inquiry-status new">New</span>
+                            </div>
+                            <p class="inquiry-message">
+                                I'm looking for a property in the downtown area. Do you have any new listings?
+                            </p>
+                            <div class="inquiry-actions">
+                                <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                                <button class="archive-btn"><i class="fas fa-archive"></i> Archive</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
+                <section id="users" class="content-section">
+                    <div class="section-header">
+                        <h2>User Management</h2>
+                    </div>
+                    <div class="users-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="User">
+                                            <span>kidus mesay</span>
+                                        </div>
+                                    </td>
+                                    <td>kidus@example.com</td>
+                                    <td>Admin</td>
+                                    <td><span class="status-badge available">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="User">
+                                            <span>Jane Smith</span>
+                                        </div>
+                                    </td>
+                                    <td>jane@example.com</td>
+                                    <td>Agent</td>
+                                    <td><span class="status-badge available">Active</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="content-section">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-container">
+                        <!-- Profile Settings -->
+                        <div class="settings-card">
+                            <h3>Profile Settings</h3>
+                            <form id="profile-settings-form" class="settings-form">
+                                <div class="form-group">
+                                    <label for="admin-name">Name</label>
+                                    <input type="text" id="admin-name" value="Admin User">
+                                </div>
+                                <div class="form-group">
+                                    <label for="admin-email">Email</label>
+                                    <input type="email" id="admin-email" value="admin@qirshousing.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="admin-phone">Phone</label>
+                                    <input type="tel" id="admin-phone" value="+251 911 123 456">
+                                </div>
+                                <button type="submit" class="save-btn">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <!-- Password Settings -->
+                        <div class="settings-card">
+                            <h3>Change Password</h3>
+                            <form id="password-settings-form" class="settings-form">
+                                <div class="form-group">
+                                    <label for="current-password">Current Password</label>
+                                    <input type="password" id="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm New Password</label>
+                                    <input type="password" id="confirm-password">
+                                </div>
+                                <button type="submit" class="save-btn">Update Password</button>
+                            </form>
+                        </div>
+
+                        <!-- Notification Settings -->
+                        <div class="settings-card">
+                            <h3>Notification Settings</h3>
+                            <form id="notification-settings-form" class="settings-form">
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="email-notifications" checked>
+                                    <label for="email-notifications">Email Notifications</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="property-alerts" checked>
+                                    <label for="property-alerts">Property Alerts</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="inquiry-notifications" checked>
+                                    <label for="inquiry-notifications">Inquiry Notifications</label>
+                                </div>
+                                <button type="submit" class="save-btn">Save Preferences</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Toast Notification -->
+                <div class="toast" id="toast"></div>
+
+            </div>
+            
+            <!-- Footer Section -->
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>QIRS Housing Solutions</h3>
+                        <p>Your trusted partner in finding the perfect home in Ethiopia.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="../listings.html">Listings</a></li>
+                            <li><a href="../about.html">About Us</a></li>
+                            <li><a href="../contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Bole, Addis Ababa, Ethiopia</p>
+                        <p><i class="fas fa-phone"></i> +251 911 123 456</p>
+                        <p><i class="fas fa-envelope"></i> info@qirshousing.com</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 QIRS Housing Solutions. All rights reserved.</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Add Property Modal -->
+    <div id="add-property-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Property</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="add-property-form">
+                <div class="form-group">
+                    <label for="property-name">Property Name</label>
+                    <input type="text" id="property-name" name="property-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-location">Location</label>
+                    <input type="text" id="property-location" name="property-location" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-price">Price</label>
+                    <input type="number" id="property-price" name="property-price" required>
+                </div>
+                <div class="form-group">
+                    <label for="property-status">Status</label>
+                    <select id="property-status" name="property-status" required>
+                        <option value="available">Available</option>
+                        <option value="pending">Pending</option>
+                        <option value="sold">Sold</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="property-image">Property Image</label>
+                    <input type="file" id="property-image" name="property-image" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Add Property</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Property Modal -->
+    <div id="edit-property-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Property</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="edit-property-form">
+                <div class="form-group">
+                    <label for="edit-property-name">Property Name</label>
+                    <input type="text" id="edit-property-name" name="property-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-property-location">Location</label>
+                    <input type="text" id="edit-property-location" name="property-location" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-property-price">Price</label>
+                    <input type="number" id="edit-property-price" name="property-price" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-property-status">Status</label>
+                    <select id="edit-property-status" name="property-status" required>
+                        <option value="available">Available</option>
+                        <option value="pending">Pending</option>
+                        <option value="sold">Sold</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-property-image">Property Image</label>
+                    <input type="file" id="edit-property-image" name="property-image" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Save Changes</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
