@@ -10,30 +10,24 @@
     --primary-color: #B01B1B;
     --primary-dark: #8B1515;
     --secondary-color: #1A1A1A;
-    
     /* Text Colors */
     --text-light: #ffffff;
     --text-dark: #1A1A1A;
     --text-gray: #666666;
-    
     /* Background Colors */
     --background-light: #F8F9FA;
     --background-white: #FFFFFF;
     --background-dark: rgba(26, 26, 26, 0.98);
-    
     /* Effects */
     --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
     --shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-    
     /* Gradients */
     --gradient-primary: linear-gradient(145deg, var(--primary-color), var(--primary-dark));
     --gradient-dark: linear-gradient(145deg, #1A1A1A, #2A2A2A);
-    
     /* Typography */
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Playfair Display', serif;
-    
     /* Transitions */
     --transition-fast: 0.3s ease;
     --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,7 +35,6 @@
 
 /* Navigation styles */
 header {
-    background-color: var(--background-dark);
     position: fixed;
     width: 100%;
     top: 0;
@@ -87,7 +80,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: var(--text-light);
+    color: #111;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
@@ -104,7 +97,7 @@ nav ul li a:after {
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     transition: var(--transition);
 }
 
@@ -114,7 +107,7 @@ nav ul li a:hover:after {
 
 nav ul li a.active {
     background: transparent;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 nav ul li a.active:after {
@@ -153,7 +146,7 @@ nav ul li a[href*="admin"]:after {
     
     nav ul li a[href*="admin"]:hover {
         background: none;
-        color: var(--primary-color);
+        color: var(--secondary-color);
         transform: none;
     }
 }
@@ -251,8 +244,8 @@ nav ul li a[href*="admin"]:after {
 }
 
 .cta-button.primary {
-    background: var(--primary-color);
-    color: var(--text-light);
+    background: var(--secondary-color);
+    color: var(--primary-color);
     border: none;
     box-shadow: 0 4px 15px rgba(176, 27, 27, 0.2);
 }
@@ -2354,4 +2347,65 @@ mark {
     .side-panel-content {
         width: 280px;
     }
+}
+
+/* Footer Styles */
+footer {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 3rem 0 1.5rem 0;
+  margin-top: 4rem;
+  font-size: 1rem;
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  gap: 2rem;
+}
+.footer-section {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+.footer-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+.footer-section ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-section ul li a:hover {
+  color: var(--secondary-color);
+}
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1rem;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+}
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .footer-section {
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+  }
 }

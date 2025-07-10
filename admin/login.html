@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - QIRS Housing</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 8vh auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem 2rem 2rem;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #B01B1B;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #B01B1B;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .login-form button:hover {
+            background: #8B1515;
+        }
+        .login-error {
+            color: #b01b1b;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form class="login-form" id="adminLoginForm">
+            <div class="login-error" id="loginError">Invalid username or password.</div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required autocomplete="username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        // Simple hardcoded credentials (for demo only)
+        const ADMIN_USER = 'admin';
+        const ADMIN_PASS = 'admin123';
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            if (user === ADMIN_USER && pass === ADMIN_PASS) {
+                localStorage.setItem('admin_logged_in', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html> 

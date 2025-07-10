@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .content-section {
-            display: none;
+            display: none;=
         }
         .content-section.active {
             display: block;
@@ -26,7 +26,7 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li>
-                        <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                        <a href="../html/index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
                     </li>
                     <li class="active">
                         <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
@@ -531,10 +531,10 @@
                     <div class="footer-section">
                         <h3>Quick Links</h3>
                         <ul>
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a href="../listings.html">Listings</a></li>
-                            <li><a href="../about.html">About Us</a></li>
-                            <li><a href="../contact.html">Contact</a></li>
+                            <li><a href="../html/index.html">Home</a></li>
+                            <li><a href="../html/listings.html">Listings</a></li>
+                            <li><a href="../html/about.html">About Us</a></li>
+                            <li><a href="../html/contact.html">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -632,6 +632,12 @@
     </div>
 
     <div class="toast" id="toast"></div>
+    <script>
+      // Redirect to login if not authenticated
+      if (!localStorage.getItem('admin_logged_in')) {
+        window.location.href = 'login.html';
+      }
+    </script>
     <script src="dashboard.js"></script>
 </body>
 </html>
