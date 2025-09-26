@@ -5,75 +5,88 @@ A modern real estate website showcasing property listings with advanced search a
 ## Features
 
 - Modern and responsive design
-- Real-time property search functionality
-- Advanced filtering options (property type, price range, bedrooms)
-- Property listings with detailed information
-- Interactive property cards with save and share functionality
-- Beautiful UI with smooth animations
+- Real-time property search and advanced filters (type, price, bedrooms)
+- Property listings with detailed info and share/save actions
+- Property detail pages with galleries and URL-driven content
+- Admin area (demo) with session expiry and idle timeout
+- Smooth animations (AOS, Animate.css) and carousels (Swiper)
 
 ## Technologies Used
 
-- HTML5
-- CSS3 (with modern features like CSS Grid and Flexbox)
-- JavaScript (ES6+)
-- Font Awesome for icons
-- Google Fonts
-- AOS (Animate On Scroll) library
-- Swiper.js for carousels
-
-## Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone [your-repository-url]
-   ```
-
-2. Open the project:
-   ```bash
-   cd qirs-housing-solution
-   ```
-
-3. Open `index.html` in your browser to view the website.
+- HTML5, CSS3, JavaScript (ES6+)
+- AOS, Animate.css, Swiper.js (self-hosted under `templates/vendor/`)
+- Font Awesome (self-hosted) and Google Fonts
 
 ## Project Structure
 
 ```
-├── index.html              # Main homepage
-├── listings.html           # Property listings page
-├── styles.css             # Main stylesheet
-├── search.js              # Search functionality
-├── app.js                 # Main JavaScript file
-└── README.md             # Project documentation
+website/
+  admin/
+    dashboard.html, dashboard.css, dashboard.js
+    login.html, index.html
+    auth.js, login.js
+  templates/
+    html/ (public pages)
+    css/  (styles)
+    js/   (scripts)
+    vendor/
+      aos/, swiper/, animate/, fa/
+  README.md, LICENSE, logo.png
 ```
 
-## Features in Detail
+## Local Development
 
-### Property Search
-- Real-time search functionality
-- Filter by property type
-- Filter by price range
-- Filter by number of bedrooms
-- Instant results update
+- Open `templates/html/index.html` in a browser to view the site.
+- Admin demo: open `admin/login.html` (username: `admin`, password: `admin123`).
+- No backend is required; admin functions are front-end demos only.
 
-### Property Listings
-- Property cards with images
-- Property details (price, location, features)
-- Save and share functionality
-- View details button
+## Security Hardening
+
+- Content Security Policy (CSP) added across pages:
+  - `default-src 'self'`
+  - Only Google Fonts allowed for external styles; all other assets are self-hosted
+  - `script-src 'self'` (no inline scripts)
+  - `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`
+- Removed inline event handlers and inline script blocks
+- Replaced risky `innerHTML` insertion in admin with safe DOM APIs
+- Admin session model:
+  - Login sets `sessionStorage` flags with 30m expiry and tracks last activity
+  - Idle logout after 10m of inactivity
+  - `admin/auth.js` enforces expiry/idle and redirects to login
+
+## Vendor Assets (Self-hosted)
+
+- Located under `templates/vendor/`
+  - AOS: `aos.css`, `aos.js`
+  - Swiper: `swiper-bundle.min.css`, `swiper-bundle.min.js`
+  - Animate.css: `animate.min.css`
+  - Font Awesome: `fa/css/all.min.css`, `fa/webfonts/*.woff2`
+
+## Scripts Overview
+
+- `templates/js/app.js`:
+  - Binds UI actions (save/share/view details), search and filter logic
+  - Initializes AOS and Swiper when present
+  - Handles index page CTAs and logo fallback
+- `templates/js/property-detail.js`:
+  - Gallery thumbnails, form submission UX
+  - Populates details from URL params
+  - Mobile nav toggle for the detail page
+- `admin/auth.js`: admin session enforcement
+- `admin/login.js`: admin login demo logic
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch (`git checkout -b feature/YourFeature`)
+3. Commit (`git commit -m 'Add YourFeature'`)
+4. Push and open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License (see `LICENSE`).
 
 ## Contact
 
-Your Name - [your-email@example.com]
-Project Link: [https://github.com/yourusername/qirs-housing-solution] 
+kidus mesay - kidusmesay0@gmail.com
+Project Link: https://github.com/yourusername/qirs-housing-solution 
