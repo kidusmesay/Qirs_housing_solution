@@ -89,4 +89,5 @@ MIT License (see `LICENSE`).
 ## Contact
 
 kidus mesay - kidusmesay0@gmail.com
-Project Link: https://github.com/kidusmesay/qirs-housing-solution 
+Project Link: https://github.com/kidusmesay/Qirs
+-housing_solution
