@@ -58,23 +58,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create new table row
         const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td>
-                <div class="property-info">
-                    <img src="${imageFile ? URL.createObjectURL(imageFile) : 'https://via.placeholder.com/50'}" alt="Property">
-                    <span>${propertyName}</span>
-                </div>
-            </td>
-            <td>${location}</td>
-            <td>${price} Birr</td>
-            <td><span class="status-badge ${status}">${status}</span></td>
-            <td>
-                <div class="action-buttons">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-            </td>
-        `;
+        // Build cells safely without using innerHTML to reduce XSS risk
+        const propertyCell = document.createElement('td');
+        const propertyInfoDiv = document.createElement('div');
+        propertyInfoDiv.className = 'property-info';
+        const imgEl = document.createElement('img');
+        imgEl.alt = 'Property';
+        imgEl.src = imageFile ? URL.createObjectURL(imageFile) : 'https://via.placeholder.com/50';
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = propertyName;
+        propertyInfoDiv.appendChild(imgEl);
+        propertyInfoDiv.appendChild(nameSpan);
+        propertyCell.appendChild(propertyInfoDiv);
+
+        const locationCell = document.createElement('td');
+        locationCell.textContent = location;
+
+        const priceCell = document.createElement('td');
+        const numericPrice = String(price).replace(/[^0-9]/g, '');
+        priceCell.textContent = `${numericPrice} Birr`;
+
+        const statusCell = document.createElement('td');
+        const statusSpan = document.createElement('span');
+        statusSpan.className = `status-badge ${status}`;
+        statusSpan.textContent = status;
+        statusCell.appendChild(statusSpan);
+
+        const actionsCell = document.createElement('td');
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'action-buttons';
+        const editBtn = document.createElement('button');
+        editBtn.className = 'edit-btn';
+        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+        actionsDiv.appendChild(editBtn);
+        actionsDiv.appendChild(deleteBtn);
+        actionsCell.appendChild(actionsDiv);
+
+        newRow.appendChild(propertyCell);
+        newRow.appendChild(locationCell);
+        newRow.appendChild(priceCell);
+        newRow.appendChild(statusCell);
+        newRow.appendChild(actionsCell);
 
         // Add new row to both tables (dashboard and properties section)
         const tables = document.querySelectorAll('.properties-table tbody');

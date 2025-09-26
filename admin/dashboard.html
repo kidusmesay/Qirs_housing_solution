@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QIRS Housing - Admin Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../templates/vendor/fa/css/all.min.css">
     <style>
         .content-section {
-            display: none;=
+            display: none;
         }
         .content-section.active {
             display: block;
         }
     </style>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
 </head>
 <body>
     <div class="admin-container">
@@ -632,12 +637,7 @@
     </div>
 
     <div class="toast" id="toast"></div>
-    <script>
-      // Redirect to login if not authenticated
-      if (!localStorage.getItem('admin_logged_in')) {
-        window.location.href = 'login.html';
-      }
-    </script>
+    <script src="auth.js"></script>
     <script src="dashboard.js"></script>
 </body>
 </html>

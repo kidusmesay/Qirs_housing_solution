@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
     <title>Property Details - QIRS Housing Solutions</title>
     
     <!-- Same head section as other pages -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../vendor/fa/css/all.min.css">
+    <link rel="stylesheet" href="../vendor/animate/animate.min.css">
+    <link href="../vendor/aos/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/property-detail.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -36,11 +40,11 @@
                 <img id="main-property-image" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Property Image">
             </div>
             <div class="thumbnail-grid">
-                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Thumbnail 1" class="active" onclick="changeMainImage(this.src)">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9" alt="Thumbnail 2" onclick="changeMainImage(this.src)">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Thumbnail 3" onclick="changeMainImage(this.src)">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Thumbnail 4" onclick="changeMainImage(this.src)">
-                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Thumbnail 5" onclick="changeMainImage(this.src)">
+                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Thumbnail 1" class="active">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9" alt="Thumbnail 2">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Thumbnail 3">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Thumbnail 4">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea" alt="Thumbnail 5">
             </div>
         </div>
 
@@ -215,76 +219,6 @@
 
     <script src="../js/app.js"></script>
     <script src="../js/property-detail.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-
-        // Function to change the main image when a thumbnail is clicked
-        function changeMainImage(src) {
-            document.getElementById('main-property-image').src = src;
-            
-            // Update active thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail-grid img');
-            thumbnails.forEach(thumb => {
-                thumb.classList.remove('active');
-                if (thumb.src === src) {
-                    thumb.classList.add('active');
-                }
-            });
-        }
-
-        // Function to get URL parameters
-        function getUrlParams() {
-            const params = {};
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            
-            for (const [key, value] of urlParams.entries()) {
-                params[key] = value;
-            }
-            
-            return params;
-        }
-
-        // Function to update property details based on URL parameters
-        function updatePropertyDetails() {
-            const params = getUrlParams();
-            
-            if (params.id) {
-                // In a real application, you would fetch property details from a database
-                // For this demo, we'll just use the URL parameters
-                
-                if (params.type) {
-                    document.getElementById('property-type').textContent = params.type.charAt(0).toUpperCase() + params.type.slice(1);
-                }
-                
-                if (params.location) {
-                    document.getElementById('property-location').textContent = params.location;
-                }
-                
-                if (params.price) {
-                    const formattedPrice = new Intl.NumberFormat().format(params.price);
-                    document.getElementById('property-price').textContent = formattedPrice + ' Birr';
-                }
-                
-                // Update the inquiry subject
-                const propertyTitle = document.getElementById('property-title').textContent;
-                document.getElementById('inquiry-subject').value = 'Inquiry about ' + propertyTitle;
-            }
-        }
-
-        // Call the function when the page loads
-        window.onload = updatePropertyDetails;
-    </script>
+    <script src="../vendor/aos/aos.js"></script>
 </body>
 </html> 

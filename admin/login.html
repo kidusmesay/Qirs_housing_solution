@@ -66,21 +66,6 @@
             <button type="submit">Login</button>
         </form>
     </div>
-    <script>
-        // Simple hardcoded credentials (for demo only)
-        const ADMIN_USER = 'admin';
-        const ADMIN_PASS = 'admin123';
-        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            if (user === ADMIN_USER && pass === ADMIN_PASS) {
-                localStorage.setItem('admin_logged_in', 'true');
-                window.location.href = 'dashboard.html';
-            } else {
-                document.getElementById('loginError').style.display = 'block';
-            }
-        });
-    </script>
+    <script src="login.js"></script>
 </body>
 </html> 

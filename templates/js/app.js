@@ -301,6 +301,45 @@ function viewPropertyDetails(event, element) {
     }
 }
 
+// Handle index hero CTA buttons and logo fallback
+(function bindIndexPage() {
+  const toListings = document.querySelector('.hero .cta-button.primary');
+  const toContact = document.querySelector('.hero .cta-button.secondary');
+  const viewAll = document.querySelector('.view-all-button .cta-button.primary');
+  if (toListings) toListings.addEventListener('click', () => { window.location.href = 'listings.html'; });
+  if (toContact) toContact.addEventListener('click', () => { window.location.href = 'contact.html'; });
+  if (viewAll) viewAll.addEventListener('click', () => { window.location.href = 'listings.html'; });
+
+  const logoImg = document.querySelector('.logo-img');
+  if (logoImg) {
+    logoImg.addEventListener('error', () => { logoImg.style.display = 'none'; });
+  }
+})();
+
+// Initialize Swiper if available on pages that include it
+(function initSwiperIfPresent() {
+  const container = document.querySelector('.swiper-container');
+  if (container && window.Swiper) {
+    new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  }
+})();
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - initializing');
@@ -358,10 +397,27 @@ document.addEventListener('DOMContentLoaded', function() {
         resetFilterButton.addEventListener('click', resetFilters);
     }
 
-    // Initialize AOS animation library
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true
+    // Bind save buttons
+    document.querySelectorAll('.save-property').forEach(btn => {
+        btn.addEventListener('click', function() { saveProperty(this); });
     });
+
+    // Bind share buttons
+    document.querySelectorAll('.share-property').forEach(btn => {
+        btn.addEventListener('click', function() { shareProperty(this); });
+    });
+
+    // Bind view details buttons
+    document.querySelectorAll('.view-details-button').forEach(anchor => {
+        anchor.addEventListener('click', function(e) { viewPropertyDetails(e, this); });
+    });
+
+    // Initialize AOS animation library
+    if (window.AOS && typeof AOS.init === 'function') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    }
 }); 

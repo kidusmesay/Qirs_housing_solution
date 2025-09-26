@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
         once: true
     });
 
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
+    // Mobile menu toggle for property detail page
+    const navTogglePd = document.querySelector('.nav-toggle');
+    if (navTogglePd) {
+        navTogglePd.addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('active');
         });
     }
@@ -100,54 +100,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Get and display property details from URL parameters
-    function getUrlParams() {
+    // Get URL params and update details
+    function getUrlParamsPd() {
         const params = {};
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        
         for (const [key, value] of urlParams.entries()) {
             params[key] = value;
         }
-        
         return params;
     }
 
-    // Update page content based on URL parameters
-    const params = getUrlParams();
-    if (Object.keys(params).length > 0) {
-        // Update title if provided
-        if (params.title) {
-            document.title = `${params.title} - QIRS Housing Solutions`;
-            document.querySelector('#property-title').textContent = params.title;
-        }
-        
-        // Update location if provided
-        if (params.location) {
-            document.querySelector('#property-location').textContent = params.location;
-        }
-        
-        // Update price if provided
-        if (params.price) {
-            const formattedPrice = new Intl.NumberFormat('en-ET', {
-                style: 'decimal'
-            }).format(params.price);
-            document.querySelector('#property-price').textContent = `${formattedPrice} Birr`;
-        }
-        
-        // Update beds if provided
-        if (params.beds) {
-            document.querySelector('#property-beds').textContent = `${params.beds} Bedrooms`;
-        }
-        
-        // Update property ID if provided
+    function updatePropertyDetailsPd() {
+        const params = getUrlParamsPd();
         if (params.id) {
-            document.querySelector('#property-id').textContent = `QIRS-${params.id}`;
-        }
-        
-        // Update property type if provided
-        if (params.type) {
-            document.querySelector('#property-type').textContent = params.type.charAt(0).toUpperCase() + params.type.slice(1);
+            if (params.type) {
+                document.getElementById('property-type').textContent = params.type.charAt(0).toUpperCase() + params.type.slice(1);
+            }
+            if (params.location) {
+                document.getElementById('property-location').textContent = params.location;
+            }
+            if (params.price) {
+                const formattedPrice = new Intl.NumberFormat().format(params.price);
+                document.getElementById('property-price').textContent = `${formattedPrice} Birr`;
+            }
+            const propertyTitle = document.getElementById('property-title').textContent;
+            document.getElementById('inquiry-subject').value = 'Inquiry about ' + propertyTitle;
         }
     }
+
+    window.addEventListener('load', updatePropertyDetailsPd);
 });
